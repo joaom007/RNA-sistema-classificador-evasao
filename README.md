@@ -13,3 +13,4 @@ e predição de evasão no IFSP câmpus Itapetininga.
 * Autor: João Marcos, 
 * github: https://github.com/joaom007
 * linkedin: https://www.linkedin.com/in/joaomarcos17/
+* repositório de código fonte do modelo de RNA: https://github.com/joaom007/RNA-classificador-evasao-escolar
