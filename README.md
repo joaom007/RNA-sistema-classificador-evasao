@@ -1,4 +1,4 @@
-# RNA sistema Django classificador de evasão escolar.
+# RNA Sistema Django com api e formulário para classificar aluno.
 
 **Código licenciado com GNU General Public License v3.0, para uso acadêmico ou fornecimento de ferramentas para instituições públicas sem que haja fins lucrativos.**
 
