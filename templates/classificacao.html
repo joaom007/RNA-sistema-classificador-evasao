@@ -1,0 +1,103 @@
+{% load widget_tweaks %}
+
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ nome_pagina }}</title>
+    <style>
+      h1{
+        text-align: center;
+        font-size: 250%;
+        margin-bottom: 2%;
+      }
+      .form-field{
+        display: flex;
+        width: 100%;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 100%;
+        margin-left: 32.5%;
+      }
+      label{
+        width: 20%;
+      }
+      input, select{
+        padding: 5px;
+        width: 15%;
+        -ms-box-sizing:content-box;
+        -moz-box-sizing:content-box;
+        -webkit-box-sizing:content-box;
+        box-sizing:content-box;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 100%;
+
+      }
+      button {
+        margin: 2% 0 0 45%;
+        color: white;
+        width: 10%;
+        padding: 1%;
+        background-color: #04AA6D;
+        border-radius: 5px;
+        font-size: 100%;
+        font-family: 'Source Sans Pro', sans-serif;
+        padding: 6px 18px;
+      }
+      .resultado>p{
+        text-align: center;
+        font-size: 150%;
+        font-family: 'Source Sans Pro', sans-serif;
+        margin: 10px;
+       }
+      strong{
+        color: green
+      }
+      .resumo{
+        color: #aaa;
+        text-align: center;
+        font-size: 100%;
+        font-family: 'Source Sans Pro', sans-serif;
+        margin: 10px;
+      }
+
+
+    </style>
+</head>
+<body>
+    <h1>{{ nome_pagina }}</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <p class="resumo">Modelo de Inteligência Artificial que visa predizer com base nos dados do aluno, <br> se há a possibilidade do estudante evadir do curso ou não.</p>
+        <div class="resultado">
+            <p>Classificação do aluno: <strong> {{ resposta }}</strong></p>
+            <p>Confiança da resposta: <strong>{{ confianca }}% </strong></p>
+        </div>
+
+
+        {% for field in form %}
+<!--        <ul>-->
+<!--         {% for aluno in todos_alunos %}-->
+<!--             <li>-->
+<!--                 Código: {{ aluno.codigo_curso }}-->
+<!--                 - Ano Matricula: {{ aluno.ano_matricula }}-->
+<!--                 - Idade : {{ aluno.idade }}-->
+<!--             </li>-->
+<!--         {% endfor %}-->
+<!--        </ul>-->
+        <p>{{novo_registro}}</p>
+        <div class="form-field">
+            <label>{{ field.label }} {% if field.field.required %} * {% endif %}</label>
+                {% render_field field placeholder=field.label class="form-control" %}
+        </div>
+        {% endfor %}
+
+        <button type="submit">Classificar</button>
+
+    </form>
+
+</body>
+</html>
